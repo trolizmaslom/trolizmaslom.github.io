@@ -1,4 +1,3 @@
-/*валидация формы*/
 function validate(form, options){
     var setings = {
         errorFunction:null,
@@ -6,7 +5,6 @@ function validate(form, options){
         highlightFunction:null,
         unhighlightFunction:null
     };
-    console.log('ee')
     $.extend(setings, options);
     var $form = $(form);
     if ($form.length && $form.attr('novalidate') === undefined) {
@@ -21,10 +19,8 @@ function validate(form, options){
                 if(typeof(setings.errorFunction) === 'function'){
                     setings.errorFunction(form);
                 }
-                if (!validator.numberOfInvalids())  return;
-                $('html, body').animate({
-                    scrollTop: $(validator.errorList[0].element).offset().top - 50
-                }, 500);
+                if (!validator.numberOfInvalids()) return;
+                $('html, body').animate({ scrollTop: $(validator.errorList[0].element).offset().top - 50 }, 500);
             },
             errorPlacement: function(error, element) {
                 error.appendTo( element.closest('.js-form_input'));
@@ -54,15 +50,18 @@ function validate(form, options){
             }
         });
         $('[required]',$form).each(function(){
-            $(this).rules( "add", {
-                required: true,
-                messages: {
+            $(this).rules(
+                "add",
+                {
+                    required: true,
+                    messages: {
                     required: "Field is required"
                 }
             });
         });
-        if($('[type="email"]',$form).length) {
-            $('[type="email"]',$form).rules( "add",
+        if ($('[type="email"]',$form).length) {
+            $('[type="email"]',$form).rules(
+                "add",
                 {
                     messages: {
                         email: "Invalid email"
@@ -72,6 +71,9 @@ function validate(form, options){
     }
 }
 
+$.validator.methods.email = function( value, element ) {
+    return this.optional( element ) || /^.+@.+\..+$/.test( value );
+}
 $(document).on('change', '.js-input-file', function () {
     $(this).closest('.form__file').find('.form__file-name').text($(this).val().split('\\').pop());
 });

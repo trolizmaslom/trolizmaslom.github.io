@@ -26,15 +26,15 @@
                     <div class="form__col">
                         <div class="form__item js-form_input">
                             <label for="name" class="form__label">YOUR NAME</label>
-                            <input type="text" id="name" name="name" class="form__input" required="required">
+                            <input type="text" id="name" name="name" class="form__input" required="required" maxlength="40">
                         </div>
                         <div class="form__item js-form_input">
                             <label for="email" class="form__label">YOUR EMAIL</label>
-                            <input type="email" id="email" name="email" class="form__input" required="required">
+                            <input type="email" id="email" name="email" class="form__input" required="required"  maxlength="40">
                         </div>
                         <div class="form__item js-form_input">
                             <label for="url" class="form__label">YOUR PORTOLIO / GITHUB</label>
-                            <input type="url" id="url" name="url" class="form__input" required="required">
+                            <input type="url" id="url" name="url" class="form__input" required="required"  maxlength="120">
                         </div>
                     </div>
                     <div class="form__col">
@@ -46,14 +46,14 @@
                             <label for="file" class="form__label">cv</label>
                             <div class="form__file">
                                 <div class="form__file-name">Choose file</div>
-                                <input type="file" id="file" name="file" class="js-input-file"/>
+                                <input type="file" id="file" name="file" class="js-input-file" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
                                 <label for="file">UPLOAD</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form__grad">
-                    <div class="form__grad-text">Graduated from <a href="#">htmlacademy.ru?</a></div>
+                    <div class="form__grad-text">Graduated from <a href="#" target="_blank">htmlacademy.ru</a>?</div>
                     <div class="form__radio-group">
                         <label class="form__radio">
                             <input type="radio" name="gradation">
